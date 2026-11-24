@@ -93,3 +93,16 @@ main{max-width:1470px;padding:20px 3.5% 110px}
 #level-cards .art .tiny{display:none}
 .mission .art .tiny{display:block}
 @media(min-width:901px){#level-cards .card{min-height:430px}#level-cards .body{min-height:252px;display:flex;flex-direction:column}#level-cards .body button{margin-top:auto}}
+
+/* Animated visual helper and extra finish */
+.nova-window{transform-origin:50% 80%;animation:novaWave 4.8s ease-in-out infinite}
+.helper:hover .nova-window{animation-duration:2s}
+.nova-bubble{position:relative;z-index:1}
+.nova-bubble:after{content:'✦';color:#71fcff;display:inline-block;margin-left:5px;animation:novaStar 2.5s ease-in-out infinite}
+#level-cards .card:nth-child(1) .body{background:linear-gradient(150deg,#113b6a,#132954)}
+#level-cards .card:nth-child(2) .body{background:linear-gradient(150deg,#3d2469,#222352)}
+#level-cards .card:nth-child(3) .body{background:linear-gradient(150deg,#5a3624,#302451)}
+#level-cards .card:nth-child(4) .body{background:linear-gradient(150deg,#14534c,#152d4d)}
+@keyframes novaWave{0%,100%{transform:translateY(0) rotate(-2deg)}35%{transform:translateY(-7px) rotate(3deg)}60%{transform:translateY(-2px) rotate(-3deg)}}
+@keyframes novaStar{0%,100%{opacity:.5;transform:scale(.75)}50%{opacity:1;transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){.nova-window,.nova-bubble:after{animation:none!important}}
