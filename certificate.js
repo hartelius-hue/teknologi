@@ -1,6 +1,6 @@
 'use strict';
 /* Personligt diplom genereres udelukkende i elevens browser. Intet navn sendes til serveren. */
-const diplomaEarned=()=>EXAMS.every((_,i)=>saved.exams?.[i]?.passed===true);
+const diplomaEarned=()=>EXAMS.every((_,i)=>saved.exams?.[i]?.passed===true)&&M.every((_,i)=>[0,1,2].every(j=>done(i,j)));
 const diplomaDate=()=>{const timestamps=EXAMS.map((_,i)=>Date.parse(saved.exams?.[i]?.date||'')).filter(Number.isFinite);const completed=timestamps.length===EXAMS.length?new Date(Math.max(...timestamps)):new Date();return new Intl.DateTimeFormat('da-DK',{timeZone:'Europe/Copenhagen',day:'numeric',month:'long',year:'numeric'}).format(completed)};
 const diplomaFeatures=['Forstår og anvender sprogmodeller','Skriver, tester og forbedrer prompts','Bruger AI kritisk og ansvarligt','Udvikler og afprøver kodeprojekter'];
 const diplomaStripName=value=>String(value||'').trim().replace(/\s+/g,' ').slice(0,70);
@@ -12,7 +12,7 @@ return '<div class="diploma-sheet" id="certificate-stage" role="document" aria-l
 '<div class="diploma-heading">DIPLOM</div>'+
 '<div class="diploma-small">TILDELES</div>'+
 '<div class="diploma-recipient">'+esc(name)+'</div>'+
-'<p class="diploma-lead">for at have gennemført SkoleGPT Labs fire læringsområder<br>og bestået alle niveauprøver.</p>'+
+'<p class="diploma-lead">for at have gennemført alle 60 udfordringer, bestået fire niveauprøver<br>og samlet alle 29 præstationsbadges.</p>'+
 '<div class="diploma-competencies">'+diplomaFeatures.map(x=>'<div><span aria-hidden="true">✦</span> '+esc(x)+'</div>').join('')+'</div>'+
 '<div class="diploma-bottom"><div><span>Gennemført</span><strong>'+esc(date)+'</strong></div><div class="diploma-seal" aria-label="Fire beståede niveauer"><strong>4 / 4</strong><small>BESTÅET</small></div><div><span>Læringsforløb</span><strong>SkoleGPT Lab · 8.–9. klasse</strong></div></div>'+
 '<div class="diploma-foot">Udstedt lokalt på baggrund af registrerede niveauprøver i elevens browser.</div></div></div>';
@@ -21,12 +21,13 @@ function renderDiplomaCTA(host=el('certificate-panel')){
 if(!host)return;
 if(!diplomaEarned()){
 const n=EXAMS.filter((_,i)=>saved.exams?.[i]?.passed).length;
-host.innerHTML='<div class="diploma-locked"><span aria-hidden="true">🏅</span><div><h3>Dit personlige diplom</h3><p>Bestå alle fire niveauprøver for at åbne diplomet. Du har bestået '+n+' af 4.</p></div><span class="diploma-lock-label">🔒 LÅST</span></div>';return;
+const finished=count();
+host.innerHTML='<div class="diploma-locked"><span aria-hidden="true">🏅</span><div><h3>Dit personlige diplom</h3><p>Gennemfør alle 60 udfordringer og bestå alle fire niveauprøver. Du har gennemført '+finished+'/60 udfordringer og bestået '+n+'/4 prøver.</p></div><span class="diploma-lock-label">🔒 LÅST</span></div>';return;
 }
-host.innerHTML='<div class="diploma-ready"><span aria-hidden="true">🏆</span><div><h3>Du har fortjent dit diplom!</h3><p>Alle fire niveauprøver er bestået. Skriv dit navn, og gem diplomet som PDF eller udskriv det.</p></div><button class="primary" onclick="showDiploma()">🎓 Hent diplom</button></div>';
+host.innerHTML='<div class="diploma-ready"><span aria-hidden="true">🏆</span><div><h3>Du har fortjent dit diplom!</h3><p>Alle 60 udfordringer og fire niveauprøver er gennemført. Skriv dit navn, og gem diplomet som PDF eller udskriv det.</p></div><button class="primary" onclick="showDiploma()">🎓 Hent diplom</button></div>';
 }
 function showDiploma(){
-if(!diplomaEarned()){alert('Du skal bestå alle fire niveauprøver, før diplomet kan udstedes.');return}
+if(!diplomaEarned()){alert('Du skal gennemføre alle 60 udfordringer og bestå alle fire niveauprøver, før diplomet kan udstedes.');return}
 el('home-view').style.display='none';el('task-view').style.display='none';el('progress-view').style.display='none';el('exam-view').style.display='none';el('certificate-view').style.display='block';
 el('certificate-name').value=saved.certName||'';
 el('certificate-stage-wrap').innerHTML='';
@@ -34,7 +35,7 @@ el('certificate-error').textContent='';
 window.scrollTo(0,0);
 }
 function prepareDiploma(){
-if(!diplomaEarned()){el('certificate-error').textContent='Diplomet er låst, indtil alle fire prøver er bestået.';return false}
+if(!diplomaEarned()){el('certificate-error').textContent='Diplomet er låst, indtil alle 60 udfordringer og alle fire prøver er bestået.';return false}
 const name=diplomaStripName(el('certificate-name').value);
 if(name.length<2||!/[\p{L}]/u.test(name)){el('certificate-error').textContent='Skriv dit navn (mindst to tegn).';return false}
 saved.certName=name;save();el('certificate-error').textContent='';
@@ -51,5 +52,5 @@ a.href=url;a.download='SkoleGPT-Lab-Diplom.html';a.click();setTimeout(()=>URL.re
 }
 const certificateHome=home;home=function(){el('certificate-view').style.display='none';certificateHome();renderDiplomaCTA()};
 const certificateProgress=progress;progress=function(){el('certificate-view').style.display='none';certificateProgress();const target=el('certificate-progress');if(target){target.innerHTML='<h2>Diplom</h2><div id="certificate-panel-progress"></div>';renderDiplomaCTA(el('certificate-panel-progress'))}};
-const certificateExamRender=renderExam;renderExam=function(){certificateExamRender();if(examSession?.index>=8&&diplomaEarned()){const c=el('exam-content');c.innerHTML+='<p class="notice">🏆 Du har bestået alle fire niveauprøver og kan hente dit personlige diplom.</p><button class="primary" onclick="showDiploma()">🎓 Lav mit diplom</button>'}};
+const certificateExamRender=renderExam;renderExam=function(){certificateExamRender();if(examSession?.index>=8&&diplomaEarned()){const c=el('exam-content');c.innerHTML+='<p class="notice">🏆 Du har gennemført hele kurset og opnået alle 29 badges. Dit personlige diplom er nu klar.</p><button class="primary" onclick="showDiploma()">🎓 Lav mit diplom</button>'}};
 home();
