@@ -106,3 +106,24 @@ main{max-width:1470px;padding:20px 3.5% 110px}
 @keyframes novaWave{0%,100%{transform:translateY(0) rotate(-2deg)}35%{transform:translateY(-7px) rotate(3deg)}60%{transform:translateY(-2px) rotate(-3deg)}}
 @keyframes novaStar{0%,100%{opacity:.5;transform:scale(.75)}50%{opacity:1;transform:scale(1.4)}}
 @media(prefers-reduced-motion:reduce){.nova-window,.nova-bubble:after{animation:none!important}}
+
+/* Three-student reference artwork and bespoke activity visual design */
+.hero{min-height:465px;justify-content:flex-start;align-items:center;text-align:left;padding:44px 49px 58px;background:linear-gradient(90deg,#08153be6 0%,#0b1741dd 24%,#0b1741a0 38%,#0b174114 60%,transparent 100%),url('assets/hero-three-students.svg') center/cover no-repeat,#111e49;border-color:#6ddfff;box-shadow:0 26px 68px #000a,0 0 35px #237fff5c}
+.hero-copy{max-width:640px;text-align:left}
+.hero h1{font-size:clamp(54px,6.5vw,90px);line-height:1.02;margin:13px 0;text-align:left}
+.hero .eyebrow{font-size:11px}
+.hero .tagline{text-align:left;font-size:clamp(17px,2vw,25px)}
+.hero .intro-line{margin:10px 0 20px;text-align:left;max-width:570px}
+.hero .links{justify-content:flex-start}
+.hero .hint{text-align:left}
+.hero-chip.right{right:2%}.hero-chip.left{display:none}
+#level-cards .art{background-size:cover!important;background-position:center!important;min-height:180px}
+.mission .art{height:172px;min-height:172px;border-bottom:1px solid #70daff66}
+.mission .art .emoji{display:none}
+.mission .art .tiny{display:block;left:12px;bottom:10px;padding:5px 10px;background:#061a3abf;border:1px solid #b3efff70;border-radius:8px;text-shadow:0 2px 4px #000;font-size:10px;max-width:calc(100% - 30px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mission .art:after{content:'';display:block;border-color:#d7ffff55}
+.task-header .art .emoji{display:none}
+.task-header .art{background-position:center!important;background-size:cover!important}
+.level-locked .art{filter:grayscale(.6) brightness(.63)}
+@media(max-width:1100px){.hero{background-position:53% center;min-height:450px}.hero-copy{max-width:550px}.hero h1{font-size:64px}}
+@media(max-width:700px){.hero{padding:36px 22px 190px;min-height:540px;align-items:flex-start;background:linear-gradient(180deg,#09173ce6,#0d1c4add 47%,#0b184010 85%),url('assets/hero-three-students.svg') 62% center/cover no-repeat}.hero-copy{max-width:100%}.hero h1{font-size:clamp(48px,11vw,68px)}.hero .intro-line{font-size:14px}.hero-chip{display:none}}
