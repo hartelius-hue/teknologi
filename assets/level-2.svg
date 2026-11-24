@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" role="img" aria-label="Laptop med analyse"><defs>
+<linearGradient id="back" x2="1" y2="1"><stop stop-color="#07122f"/><stop offset=".45" stop-color="#152b60"/><stop offset="1" stop-color="#1d104c"/></linearGradient>
+<radialGradient id="aura"><stop stop-color="#1ce8ff" stop-opacity=".72"/><stop offset="1" stop-color="#523af8" stop-opacity="0"/></radialGradient>
+<linearGradient id="silver" x1=".1" y1=".1" x2=".85" y2=".9"><stop stop-color="#fff"/><stop offset=".28" stop-color="#c3f4ff"/><stop offset=".6" stop-color="#739cdd"/><stop offset=".83" stop-color="#ecfaff"/><stop offset="1" stop-color="#6481d8"/></linearGradient>
+<linearGradient id="screen" x2=".8" y2="1"><stop stop-color="#073d85"/><stop offset=".48" stop-color="#03182e"/><stop offset="1" stop-color="#070b23"/></linearGradient>
+<linearGradient id="holo" x2="1" y2="1"><stop stop-color="#4dfaff" stop-opacity=".98"/><stop offset="1" stop-color="#b58aff" stop-opacity=".65"/></linearGradient>
+<linearGradient id="desk" x2="0" y2="1"><stop stop-color="#3657a9"/><stop offset=".4" stop-color="#1a306c"/><stop offset="1" stop-color="#09102b"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="12"/></filter><filter id="shadow"><feDropShadow dx="0" dy="15" stdDeviation="13" flood-color="#01071c" flood-opacity=".8"/></filter>
+<pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="#83daff" stroke-width=".65" opacity=".13"/></pattern>
+</defs><defs><radialGradient id="special"><stop stop-color="#b97aff" stop-opacity=".55"/><stop offset="1" stop-color="#533fd7" stop-opacity="0"/></radialGradient></defs><rect width="760" height="560" fill="url(#back)"/><rect width="760" height="560" fill="url(#grid)"/><ellipse cx="400" cy="280" rx="400" ry="350" fill="url(#special)"/><path d="M0 505Q350 440 760 510V560H0Z" fill="url(#desk)" stroke="#b97aff" stroke-width="5"/><g transform="translate(70 190)" filter="url(#shadow)"><rect width="510" height="280" rx="21" fill="#10215a" stroke="#bb8fff" stroke-width="10"/><rect x="25" y="26" width="460" height="213" rx="10" fill="#131b47"/><path d="M50 192 138 131 211 163 296 73 384 112 443 45" fill="none" stroke="#7ffaff" stroke-width="12"/><path d="M-10 283h520l-30 27H20Z" fill="url(#silver)"/></g><g transform="translate(555 135) scale(.3)"><g transform="translate(0 0) scale(0.85)" filter="url(#shadow)">
+<ellipse cx="164" cy="343" rx="150" ry="22" fill="#22dfff" opacity=".32" filter="url(#glow)"/>
+<path d="M96 213Q65 237 75 314Q166 365 259 316Q265 240 232 214Z" fill="url(#silver)" stroke="#b1f7ff" stroke-width="6"/>
+<path d="M127 238Q171 225 211 240L216 314Q164 329 119 311Z" fill="#214689" opacity=".7"/>
+<rect x="144" y="256" width="50" height="49" rx="18" fill="#052958" stroke="#58f5ff" stroke-width="5"/>
+<path d="M157 278h24m-12-12v24" stroke="#6dffff" stroke-width="5" stroke-linecap="round"/>
+<path d="M84 242Q48 238 46 291Q49 316 71 318Q94 300 112 268Z" fill="url(#silver)" stroke="#a8e8ff" stroke-width="5"/>
+<path d="M242 240Q280 230 292 262L301 286Q288 309 265 300L224 267Z" fill="url(#silver)" stroke="#a8e8ff" stroke-width="5"/>
+<ellipse cx="170" cy="137" rx="131" ry="117" fill="url(#silver)" stroke="#e0fbff" stroke-width="9"/>
+<rect x="53" y="69" width="234" height="151" rx="68" fill="url(#screen)" stroke="#8eeeff" stroke-width="6"/>
+<path d="M111 142Q134 105 153 143M193 142Q212 105 237 143" fill="none" stroke="#58f8ff" stroke-width="12" stroke-linecap="round"/>
+<path d="M164 164Q178 177 193 164" fill="none" stroke="#72e7ff" stroke-width="6" stroke-linecap="round"/>
+<rect x="24" y="111" width="35" height="73" rx="16" fill="url(#silver)" stroke="#8de5ff" stroke-width="5"/>
+<rect x="283" y="111" width="35" height="73" rx="16" fill="url(#silver)" stroke="#8de5ff" stroke-width="5"/>
+<path d="M170 23V-2" stroke="#d5ffff" stroke-width="7"/><circle cx="170" cy="-9" r="13" fill="#55f9ff"/>
+<ellipse cx="121" cy="67" rx="53" ry="15" fill="#fff" opacity=".26" transform="rotate(-26 121 67)"/>
+</g></g><g stroke="#b97aff" stroke-width="5" opacity=".7"><path d="M50 70h90m-46-46v92M670 90h55m-28-27v55"/></g></svg>
