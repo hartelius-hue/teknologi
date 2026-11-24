@@ -1,0 +1,61 @@
+/* SkoleGPT Lab · Diploma. Original printable A4 certificate. */
+.diploma-locked,.diploma-ready{display:flex;align-items:center;gap:16px;border:1px solid #6e93cb;border-radius:20px;background:linear-gradient(125deg,#1a315c,#1e224c);box-shadow:0 15px 30px #0008;padding:19px;margin:14px 0 28px}
+.diploma-ready{border-color:#f4cb7d;background:radial-gradient(circle at 96% 30%,#86643b99,transparent 33%),linear-gradient(115deg,#1b395d,#293152)}
+.diploma-ready>span,.diploma-locked>span:first-child{font-size:46px}
+.diploma-ready>div,.diploma-locked>div{flex:1}
+.diploma-ready h3,.diploma-locked h3{font-size:23px;margin:0 0 5px}
+.diploma-ready p,.diploma-locked p{margin:0;color:#d4e5fa;font-size:14px}
+.diploma-lock-label{font-size:12px;font-weight:800;color:#b7c8e5;white-space:nowrap}
+#certificate-view{display:none}
+#certificate-view .diploma-control{max-width:890px;margin:0 auto 18px;background:#17284a;padding:22px;border:1px solid #5cbadf;border-radius:18px}
+#certificate-view label{display:block;margin:0 0 8px;font-weight:800}
+#certificate-name{width:100%;max-width:520px;padding:13px 15px;border:2px solid #83ceea;border-radius:12px;background:#0b1c3e;color:white;font:inherit}
+#certificate-view .controls{margin:15px 0}
+#certificate-stage-wrap{max-width:1100px;margin:0 auto}
+#certificate-error{color:#ffd0d7;min-height:22px;margin-top:7px}
+.diploma-sheet{aspect-ratio:297/210;position:relative;overflow:hidden;width:100%;max-width:1100px;margin:auto;background:radial-gradient(circle at 50% 20%,#244a83,#142950 54%,#09152f);border:10px solid #e9c778;box-shadow:0 22px 50px #000c;color:#f7f5f1;font-family:Georgia,'Times New Roman',serif;text-align:center}
+.diploma-inner{position:absolute;inset:1.2%;border:3px solid #d6b771;padding:3% 5% 2%;display:flex;flex-direction:column;align-items:center;justify-content:space-around;overflow:hidden}
+.diploma-inner:before,.diploma-inner:after{content:'✦';position:absolute;color:#d9b979;font-size:52px;top:10%;opacity:.65}
+.diploma-inner:before{left:5%}.diploma-inner:after{right:5%}
+.diploma-orbit{position:absolute;z-index:0;font-size:320px;color:#d3be7840;top:10%;left:50%;transform:translateX(-50%);pointer-events:none}
+.diploma-inner>*:not(.diploma-orbit){z-index:1;position:relative}
+.diploma-kicker{font:800 clamp(10px,1.4vw,16px)/1.4 system-ui,sans-serif;letter-spacing:.26em;color:#e9ca83}
+.diploma-sparkles{font-size:clamp(12px,1.9vw,25px);color:#f9d995;letter-spacing:.55em}
+.diploma-heading{font-size:clamp(42px,7.5vw,100px);font-weight:800;letter-spacing:.13em;color:#fff4d4;line-height:.92;text-shadow:0 4px 0 #725a32}
+.diploma-small{font:750 clamp(10px,1.3vw,17px) system-ui,sans-serif;letter-spacing:.2em;color:#c8e9ff}
+.diploma-recipient{font-size:clamp(28px,5.3vw,72px);line-height:1.05;max-width:95%;overflow-wrap:anywhere;border-bottom:2px solid #e2bf72;padding:0 4% 1%;color:#fff}
+.diploma-lead{font:clamp(12px,1.6vw,20px)/1.5 system-ui,sans-serif;color:#dbe9fc;margin:0}
+.diploma-competencies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 25px;text-align:left;margin:2px 0;width:85%;max-width:850px;font:650 clamp(10px,1.2vw,15px) system-ui,sans-serif;color:#e4f8ff}
+.diploma-competencies span{color:#f9d580}
+.diploma-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;width:100%;max-width:920px;text-align:left}
+.diploma-bottom>div:last-child{text-align:right}
+.diploma-bottom span{font:700 clamp(10px,1.1vw,13px) system-ui,sans-serif;letter-spacing:.11em;color:#a8d7f4;display:block}
+.diploma-bottom strong{display:block;font-size:clamp(11px,1.3vw,17px);color:#fff2d0;margin-top:4px}
+.diploma-seal{border:5px double #f5d583;border-radius:50%;min-width:104px;min-height:104px;display:flex;align-items:center;justify-content:center;flex-direction:column;background:radial-gradient(circle,#a27b34,#745b26);box-shadow:0 0 20px #d9ad6480}
+.diploma-seal strong{font-size:28px!important;line-height:1.1!important;margin:0!important}
+.diploma-seal small{font:800 10px system-ui,sans-serif;letter-spacing:.15em;color:#fff2cc}
+.diploma-foot{font:10px/1.3 system-ui,sans-serif;color:#aabddc}
+.standalone-hint{text-align:center;font:15px system-ui,sans-serif;color:#e5f8ff;margin:15px}
+.standalone-diploma{max-width:1100px;margin:18px auto}
+@media(max-width:720px){
+.diploma-ready,.diploma-locked{flex-wrap:wrap}.diploma-ready>button{width:100%}
+.diploma-sheet{border-width:5px}.diploma-inner{padding:2.5%;border-width:2px}
+.diploma-heading{font-size:7vw}.diploma-orbit{font-size:120px}
+.diploma-seal{min-width:52px;min-height:52px;border-width:2px}.diploma-seal strong{font-size:14px!important}.diploma-seal small{font-size:6px}
+.diploma-bottom{gap:5px}.diploma-competencies{gap:4px 10px;width:95%}.diploma-foot{font-size:5px}
+}
+@page{size:A4 landscape;margin:0}
+@media print{
+body{background:white!important;margin:0!important;print-color-adjust:exact!important;-webkit-print-color-adjust:exact!important}
+body *{visibility:hidden!important}
+#certificate-stage,#certificate-stage *{visibility:visible!important}
+#certificate-stage{position:fixed!important;top:0!important;left:0!important;width:297mm!important;height:210mm!important;max-width:none!important;margin:0!important;border-width:4mm!important;box-shadow:none!important;aspect-ratio:auto!important}
+#certificate-stage .diploma-inner{padding:3% 5% 2%}
+#certificate-stage .diploma-heading{font-size:76px}
+#certificate-stage .diploma-recipient{font-size:54px}
+#certificate-stage .diploma-competencies{font-size:13px}
+#certificate-stage .diploma-lead{font-size:18px}
+#certificate-stage .diploma-kicker{font-size:15px}
+#certificate-stage .diploma-bottom strong{font-size:14px}
+#certificate-stage .diploma-seal{width:105px;height:105px}
+}
