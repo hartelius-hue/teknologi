@@ -17,8 +17,8 @@ return '<div class="diploma-sheet" id="certificate-stage" role="document" aria-l
 '<div class="diploma-bottom"><div><span>Gennemført</span><strong>'+esc(date)+'</strong></div><div class="diploma-seal" aria-label="Fire beståede niveauer"><strong>4 / 4</strong><small>BESTÅET</small></div><div><span>Læringsforløb</span><strong>SkoleGPT Lab · 8.–9. klasse</strong></div></div>'+
 '<div class="diploma-foot">Udstedt lokalt på baggrund af registrerede niveauprøver i elevens browser.</div></div></div>';
 }
-function renderDiplomaCTA(){
-const host=el('certificate-panel');if(!host)return;
+function renderDiplomaCTA(host=el('certificate-panel')){
+if(!host)return;
 if(!diplomaEarned()){
 const n=EXAMS.filter((_,i)=>saved.exams?.[i]?.passed).length;
 host.innerHTML='<div class="diploma-locked"><span aria-hidden="true">🏅</span><div><h3>Dit personlige diplom</h3><p>Bestå alle fire niveauprøver for at åbne diplomet. Du har bestået '+n+' af 4.</p></div><span class="diploma-lock-label">🔒 LÅST</span></div>';return;
@@ -50,6 +50,6 @@ const blob=new Blob([doc],{type:'text/html;charset=utf-8'}),url=URL.createObject
 a.href=url;a.download='SkoleGPT-Lab-Diplom.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 }
 const certificateHome=home;home=function(){el('certificate-view').style.display='none';certificateHome();renderDiplomaCTA()};
-const certificateProgress=progress;progress=function(){el('certificate-view').style.display='none';certificateProgress();const target=el('certificate-progress');if(target){target.innerHTML='<h2>Diplom</h2><div id="certificate-panel"></div>';renderDiplomaCTA()}};
+const certificateProgress=progress;progress=function(){el('certificate-view').style.display='none';certificateProgress();const target=el('certificate-progress');if(target){target.innerHTML='<h2>Diplom</h2><div id="certificate-panel-progress"></div>';renderDiplomaCTA(el('certificate-panel-progress'))}};
 const certificateExamRender=renderExam;renderExam=function(){certificateExamRender();if(examSession?.index>=8&&diplomaEarned()){const c=el('exam-content');c.innerHTML+='<p class="notice">🏆 Du har bestået alle fire niveauprøver og kan hente dit personlige diplom.</p><button class="primary" onclick="showDiploma()">🎓 Lav mit diplom</button>'}};
 home();
