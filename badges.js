@@ -53,13 +53,29 @@ const unlocked=list.filter(badgeEarned).length;
 const ordered=list.filter(badgeEarned).concat(list.filter(b=>!badgeEarned(b)));
 return '<section class="badge-category"><div class="badge-category-title"><div><h3>'+esc(title)+'</h3><p>'+esc(note)+'</p></div><span>'+unlocked+' / '+list.length+'</span></div><div class="achievement-grid">'+ordered.map(badgeCard).join('')+'</div></section>';
 }
+function renderCertificatePreview(){
+const all=BADGE_ALL.length,won=badgeCurrent().length,finished=diplomaEarned(),remaining=all-won;
+return '<section class="badge-diploma-section" aria-label="Forhåndsvisning af diplomet">'+
+'<div class="badge-category-title"><div><h3>Dit endelige diplom</h3><p>Se belønningen, du arbejder hen imod</p></div><span class="badge-diploma-status">'+(finished?'🏆 KLAR':'🔒 '+won+' / '+all)+'</span></div>'+
+'<div class="badge-diploma-mini" role="img" aria-label="Forhåndsvisning af SkoleGPT Lab-diplomet, mørkeblåt med guldramme, fire kompetenceområder og elevens navn">'+
+'<div class="badge-diploma-mini-inner"><div class="badge-diploma-mini-top">◈ SKOLEGPT LAB · TEKNOLOGIFORSTÅELSE</div>'+
+'<div class="badge-diploma-mini-stars">✦ ✧ ★ ✧ ✦</div><div class="badge-diploma-mini-heading">DIPLOM</div>'+
+'<div class="badge-diploma-mini-sub">TILDELES</div>'+
+'<div class="badge-diploma-mini-name">'+esc(finished&&saved.certName?saved.certName:'DIT NAVN')+'</div>'+
+'<div class="badge-diploma-mini-intro">For at have bestået hele AI-læringsforløbet</div>'+
+'<div class="badge-diploma-mini-competencies"><span>✦ AI-forståelse</span><span>✦ Kritisk AI</span><span>✦ Prompts</span><span>✦ Vibe coding</span></div>'+
+'<div class="badge-diploma-mini-bottom"><span>SKOLEGPT LAB · 8.–9. KLASSE</span><span class="badge-diploma-mini-seal">29 / 29<br><small>BADGES</small></span></div>'+
+'</div></div>'+
+'<div class="badge-diploma-callout"><p>'+(finished?'🎉 Du har opnået alle 29 badges. Dit diplom er klar til at få dit navn på og blive udskrevet.':remaining===1?'Kun ét badge mangler! Fortsæt med at gennemføre dine mål.':'Saml de sidste '+remaining+' badges ved at gennemføre missionerne og bestå niveauprøverne.')+'</p>'+
+(finished?'<button class="badge-diploma-button" onclick="showDiploma()">🎓 Hent mit personlige diplom</button>':'<span class="badge-diploma-lock">🔒 Diplomet låses op ved 29 / 29 badges</span>')+'</div></section>';
+}
 function renderBadgeWall(){
 const wall=el('badge-wall');if(!wall)return;
 const earned=badgeCurrent().length;
 wall.innerHTML='<div class="badge-wall-head"><div><span class="badge-eyebrow">DINE PRÆSTATIONER</span><h2>Min badge-samling</h2><p>Medaljerne får farve, når du når et fagligt mål. Låste medaljer viser dit næste mål.</p></div><div class="badge-count"><span>'+earned+'</span><small>AF '+BADGE_ALL.length+' BADGES</small></div></div>'+
 groupBadges('Milepæle','For hver nye udfordring du gennemfører',BADGE_STEPS)+
 groupBadges('Niveaumestre','Opnås, når en niveauprøve er bestået',BADGE_LEVELS)+
-groupBadges('Missionsmærker','Gennemfør alle tre sværhedsgrader i hver mission',BADGE_MISSIONS);
+groupBadges('Missionsmærker','Gennemfør alle tre sværhedsgrader i hver mission',BADGE_MISSIONS)+renderCertificatePreview();
 }
 function renderBadgeProgress(){
 const target=el('progress-body');if(!target)return;
