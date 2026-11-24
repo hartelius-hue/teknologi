@@ -156,3 +156,11 @@ main{max-width:1470px;padding:20px 3.5% 110px}
 .task-header .scene-banner .scene-hologram{width:37%}
 @keyframes sceneHover{0%,100%{translate:0 0}50%{translate:0 -7px}}
 @media(prefers-reduced-motion:reduce){.scene-students,.scene-hologram{transition:none!important;animation:none!important}}
+
+/* Mission gallery v3: self-contained illustrations, not repeated photographs */
+.mission .art.mission-art-v3{height:185px;min-height:185px;background-size:cover!important;background-position:center!important;isolation:isolate;position:relative}
+.mission .art.mission-art-v3:before,.mission .art.mission-art-v3:after{display:none!important}
+.mission .art.mission-art-v3 .tiny{display:block;position:absolute;left:11px;bottom:10px;right:auto;max-width:calc(100% - 24px);background:#071a3cc9;border:1px solid #a2eaff77;color:#fff;border-radius:8px;padding:5px 10px;font-size:10px;letter-spacing:.06em;text-shadow:0 2px 4px #000;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-shadow:0 4px 10px #0008}
+.mission:hover .mission-art-v3{filter:saturate(1.15) contrast(1.03)}
+.task-header .mission-art-v3{height:155px;min-height:155px}
+@media(max-width:650px){.mission .art.mission-art-v3{height:190px}}
