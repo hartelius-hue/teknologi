@@ -143,7 +143,7 @@ const templates=[
 '<!doctype html>\n<html lang="da"><meta charset="utf-8"><title>Point</title><style>body{font:20px Arial;padding:25px;background:#eafff3}button{padding:12px;margin:5px}</style><h1>Pointtæller</h1><p id="svar" aria-live="polite">0 point</p><button onclick="point++;vis()">+1 point</button><button onclick="point=0;vis()">Nulstil</button><script>let point=0;function vis(){document.getElementById(\'svar\').textContent=point+\' point\'}<\/script>'
 ];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let saved={done:{},notes:{}};try{let x=JSON.parse(localStorage.getItem('skolegpt-lab-github')||'{}');saved.done=x.done||{};saved.notes=x.notes||{}}catch(e){}
+let saved={done:{},notes:{}};try{let x=JSON.parse(localStorage.getItem('skolegpt-lab-github')||'{}');saved.done=x.done||{};saved.notes=x.notes||{};saved.exams=x.exams||{};saved.certName=x.certName||''}catch(e){}
 const key=(m,d)=>m+'-'+d,save=()=>{try{localStorage.setItem('skolegpt-lab-github',JSON.stringify(saved))}catch(e){}},done=(m,d)=>!!saved.done[key(m,d)],count=()=>Object.values(saved.done).filter(Boolean).length;
 let m=0,d=0,filter=-1;const el=id=>document.getElementById(id);
 function art(i,emoji,name,mission){const isLevel=mission===undefined;const key=isLevel?'level-'+(i+1):'mission-'+String(mission+1).padStart(2,'0');const primary='assets/3d/'+key+'.webp';const fallback=isLevel?['assets/level-photo-1.webp','assets/hero-lab.svg','assets/newscene-11.svg','assets/newscene-18.svg'][i]:'assets/newscene-'+String(mission+1).padStart(2,'0')+'.svg';return '<div class="art mission-art-v3" role="img" aria-label="'+esc(name)+' – detaljeret 3D-illustration" style="--glow:'+levels[i][2]+';background-image:url('+primary+'),url('+fallback+');background-position:center;background-size:cover"><span class="tiny">'+esc(name.toUpperCase())+'</span></div>'}
@@ -170,4 +170,4 @@ function resetAll(){if(confirm('Vil du slette lokale fremskridt og tekster?')){s
 home();
 function christmasVisibility(){const p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Copenhagen',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());let d=Object.fromEntries(p.map(x=>[x.type,Number(x.value)]));const show=d.year===2026&&(d.month===11&&d.day>=24||d.month===12&&d.day<=25);el('christmas-feature').style.display=show?'block':'none';el('christmas-nav').style.display=show?'inline-block':'none'}
 christmasVisibility();setInterval(christmasVisibility,60000);
-</script><script src="assessment-quality.js?v=2"></script><script src="exams.js?v=1"></script><script src="exam-quality.js?v=2"></script><script src="certificate.js?v=1"></script></body></html>
+</script><script src="assessment-quality.js?v=2"></script><script src="exams.js?v=1"></script><script src="exam-quality.js?v=3"></script><script src="certificate.js?v=2"></script></body></html>
