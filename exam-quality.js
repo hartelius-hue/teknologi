@@ -46,6 +46,26 @@ for(let l=0;l<EXAMS.length;l++){
 if(EXAMS[l].questions.length!==8||EXAM_ALTERNATIVES[l].length!==8)throw Error('Ufuldstændig prøvebank');
 EXAMS[l].questions=EXAMS[l].questions.map((q,i)=>[q[0],q[1],...EXAM_ALTERNATIVES[l][i]]);
 }
+/* Variation i svarets længde: hverken korteste eller længste mulighed er facit som fast regel. */
+const REFINED_CORRECT={
+'0-0':'Genererer tekst ud fra mønstre i træningsdata, uden at kunne garantere at alle fakta er korrekte.',
+'0-2':'Kontrollere tallet hos en troværdig fagkilde og undersøge, hvad tallet bygger på.',
+'0-4':'Præcisere opgavens målgruppe, format og formål for at få et mere brugbart svar.',
+'1-1':'Stille ét spørgsmål ad gangen, give hints og først afsløre facit, når eleven har forsøgt.',
+'1-2':'Beskrive rolle, målgruppe, arbejdsform, grænser og måden der gives faglig feedback på.',
+'1-4':'Undersøge både påstandenes dokumentation, faglige holdbarhed og den usikkerhed, der er tilbage.',
+'1-5':'Beskrive målgruppen og vælge et passende fagligt niveau for svaret.',
+'1-7':'For at opdage upræcise forklaringer, misforståelser og forslag, som kan være usikre i praksis.',
+'2-1':'Kun indsamle de personoplysninger, som er nødvendige, og beskytte elevens privatliv.',
+'2-3':'Et overbevisende sprog er ikke dokumentation; centrale oplysninger skal kontrolleres i troværdige kilder.',
+'2-5':'Bevare menneskets ansvar og undersøge mulige konsekvenser, før beslutninger træffes.',
+'2-7':'Undersøge kilder, datoer og definitioner, så det bliver klart, hvorfor oplysningerne er forskellige.',
+'3-0':'HTML beskriver en sides indhold og struktur, herunder overskrifter, afsnit, billeder og knapper.',
+'3-2':'JavaScript håndterer interaktioner, spillogik og point, når brugeren klikker eller svarer.',
+'3-4':'Genskabe fejlen med bestemte trin og derefter undersøge knappens kode og logik.',
+'3-6':'At knapper har forståelige navne og kan betjenes med tastatur, også uden mus.'
+};
+for(let level=0;level<EXAMS.length;level++)for(let q=0;q<EXAMS[level].questions.length;q++){const replacement=REFINED_CORRECT[level+'-'+q];if(replacement)EXAMS[level].questions[q][1]=replacement}
 function examShuffle(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 renderExam=function(){
 const t=examSession,l=t.level,questions=EXAMS[l].questions;
