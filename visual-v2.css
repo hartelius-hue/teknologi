@@ -164,3 +164,12 @@ main{max-width:1470px;padding:20px 3.5% 110px}
 .mission:hover .mission-art-v3{filter:saturate(1.15) contrast(1.03)}
 .task-header .mission-art-v3{height:155px;min-height:155px}
 @media(max-width:650px){.mission .art.mission-art-v3{height:190px}}
+
+/* Keep all four distinctly illustrated level cards vibrant, including locked levels. */
+#level-cards .card .art{filter:none!important;opacity:1!important;background-blend-mode:normal;background-repeat:no-repeat!important;background-size:cover!important;background-position:center!important}
+#level-cards .level-locked .art{filter:none!important;opacity:1!important}
+#level-cards .level-locked .body{opacity:1}
+#level-cards .card:nth-child(2) .art{background-position:30% 43%!important;background-color:#251c58}
+#level-cards .card:nth-child(3) .art{background-position:52% 47%!important;background-color:#462744}
+#level-cards .card:nth-child(4) .art{background-position:51% 51%!important;background-color:#113d49}
+#level-cards .card:nth-child(2) .art:after,#level-cards .card:nth-child(3) .art:after,#level-cards .card:nth-child(4) .art:after{display:none}
