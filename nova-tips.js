@@ -77,3 +77,6 @@ progress=function(){
     'Du har klaret '+finished+' ud af 60 udfordringer og bestået '+examsPassed+' ud af fire niveauprøver. Hvad vil du arbejde med næste gang?';
   novaRender(message);
 };
+
+/* Initialise Novas velkomsttip på hovedsiden. */
+home();
