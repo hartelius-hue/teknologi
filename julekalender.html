@@ -67,5 +67,5 @@ function startMusic(){if(musicOn)return;let AC=window.AudioContext||window.webki
 function stopMusic(){if(musicTimer)clearInterval(musicTimer);musicTimer=null;musicOn=false;el('musicButton').textContent='♫ Start julemusik';el('musicButton').setAttribute('aria-pressed','false')}
 el('musicButton').addEventListener('click',()=>musicOn?stopMusic():startMusic());el('readButton').addEventListener('click',readText);el('celebrate').addEventListener('click',()=>{stopMusic();startMusic()});
 for(let i=0;i<32;i++){let f=document.createElement('span');f.className='flake';f.textContent=i%3?'❄':'✦';f.style.left=((i*37)%100)+'%';f.style.animationDuration=(11+i%9)+'s';f.style.animationDelay=-(i%21)+'s';el('snow').appendChild(f)}
-resetUI();setInterval(()=>{const prev=state.last;resetUI();state.last=prev},60000);
+resetUI();let lastMinuteKey='';setInterval(()=>{const t=nowDK();let k=[t.year,t.month,t.day,t.hour].join('-');if(k!==lastMinuteKey){lastMinuteKey=k;if(el('calendar').style.display==='none'||(t.month===12&&t.day<=25)){renderDoors();renderLetters()}if(!visible(t))resetUI()}},60000);
 </script></body></html>
