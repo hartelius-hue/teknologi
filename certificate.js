@@ -1,7 +1,7 @@
 'use strict';
 /* Personligt diplom genereres udelukkende i elevens browser. Intet navn sendes til serveren. */
 const diplomaEarned=()=>EXAMS.every((_,i)=>saved.exams?.[i]?.passed===true);
-const diplomaDate=()=>new Intl.DateTimeFormat('da-DK',{timeZone:'Europe/Copenhagen',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+const diplomaDate=()=>{const timestamps=EXAMS.map((_,i)=>Date.parse(saved.exams?.[i]?.date||'')).filter(Number.isFinite);const completed=timestamps.length===EXAMS.length?new Date(Math.max(...timestamps)):new Date();return new Intl.DateTimeFormat('da-DK',{timeZone:'Europe/Copenhagen',day:'numeric',month:'long',year:'numeric'}).format(completed)};
 const diplomaFeatures=['Forstår og anvender sprogmodeller','Skriver, tester og forbedrer prompts','Bruger AI kritisk og ansvarligt','Udvikler og afprøver kodeprojekter'];
 const diplomaStripName=value=>String(value||'').trim().replace(/\s+/g,' ').slice(0,70);
 function drawDiploma(name,date){
