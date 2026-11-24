@@ -1,0 +1,31 @@
+
+/* Level exam and progression gates */
+#exam-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0 36px}
+.exam-tile{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#16376b,#211b4b);border:1px solid #78cafa;border-radius:20px;padding:19px;box-shadow:0 12px 27px #0009,inset 0 1px #a9edff44}
+.exam-tile.passed{border-color:#6ff7c7;background:linear-gradient(130deg,#185a55,#17356a)}
+.exam-icon{font-size:42px;min-width:50px;filter:drop-shadow(0 9px 9px #0008)}
+.exam-content{flex:1;min-width:0}.exam-content h3{font-size:21px;line-height:1.16;margin:6px 0}.exam-content p{font-size:13px;color:#d9e9fc;margin:0}
+.exam-kicker{font-size:11px;letter-spacing:.13em;color:#92ecff;font-weight:900}
+.exam-tile>button{border:1px solid #5be7ff;border-radius:13px;background:#44d9f5;color:#081834;padding:10px 12px;font-weight:850;white-space:nowrap}
+.exam-tile>button:disabled{background:#1a2b4a;color:#92a5c4;border-color:#495c79;cursor:not-allowed;white-space:normal;max-width:115px}
+.level-locked .art{filter:grayscale(.55) brightness(.7)}
+.level-locked .body{position:relative}.level-locked .body:before{content:'🔒 LÅST';position:absolute;right:15px;top:10px;border:1px solid #adc0e1;border-radius:9px;padding:4px 9px;color:#e9f3ff;background:#10192d;font-size:11px;font-weight:900}
+.level-locked button{background:#5c7094!important;color:#f4faff!important}
+#exam-view{display:none;max-width:950px;margin:auto}
+.exam-hero{padding:30px;border-radius:24px;background:radial-gradient(circle at 87% 10%,#744dff70,transparent 45%),linear-gradient(135deg,#152b59,#191941);border:1px solid #85d9ff}
+.exam-hero h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.035em;margin:7px 0}
+.exam-question{padding:30px;margin-top:18px;border:1px solid #69b9ff;border-radius:22px;background:linear-gradient(155deg,#172e5d,#171e40)}
+.exam-question h2{font-size:clamp(23px,2.5vw,32px);margin:8px 0 23px}
+.exam-options{display:grid;gap:12px;margin-bottom:18px}
+.exam-options button{padding:18px;text-align:left;color:#f3faff;border:1px solid #688bb8;background:linear-gradient(125deg,#1e4579,#202a58);border-radius:14px;transition:transform .15s,background .15s}
+.exam-options button:not(:disabled):hover{transform:translateX(5px);border-color:#6cf5ff}
+.exam-options button.right{background:#145c4a;border-color:#72ffd0}
+.exam-options button.wrong{background:#6f2b41;border-color:#ff8aa6}
+.exam-options button:disabled{cursor:default}
+.exam-feedback{padding:12px 16px;border-radius:11px;margin:10px 0 20px}
+.exam-feedback.good{background:#165646;color:#ccffee}.exam-feedback.bad{background:#602943;color:#ffe2ec}
+.exam-finish{text-align:center;margin-top:22px;padding:30px;border:1px solid #7ff3da;border-radius:21px;background:#17314c;font-size:23px}
+.exam-finish h2{margin:8px 0}.exam-finish p{font-size:16px}
+.exam-finish button{margin:8px}
+@media(max-width:950px){#exam-panel{grid-template-columns:1fr}}
+@media(max-width:540px){.exam-tile{flex-wrap:wrap}.exam-tile>button{flex-basis:100%;max-width:none!important}.exam-question{padding:18px}.exam-hero{padding:22px}}
