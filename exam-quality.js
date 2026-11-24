@@ -85,6 +85,8 @@ const EXAM_BALANCED_CORRECT={
   "3-1": "CSS bruges til at definere sidens layout, farver og visuelle udtryk."
 };
 for(let level=0;level<EXAMS.length;level++)for(let q=0;q<EXAMS[level].questions.length;q++){const fix=EXAM_BALANCED_CORRECT[level+'-'+q];if(fix)EXAMS[level].questions[q][1]=fix}
+const EXAM_FINAL_BALANCE={"1-0":"Teste de to prompts med samme opgave og fælles vurderingskriterier.","1-1":"Stille ét spørgsmål ad gangen og give hints, før eleven får facit.","1-2":"Beskrive rolle, mål, arbejdsform, begrænsninger og faglig feedback.","1-3":"Undlade kilden og efterprøve oplysningerne i de originale fagkilder.","2-1":"Indsamle de nødvendige persondata og beskytte alle elevers privatliv.","2-2":"Følge skolens regler med en selvstændig faglig vurdering og åbenhed.","2-3":"Et sikkert AI-svar er ikke dokumentation; centrale kilder må efterprøves.","3-7":"Læse, teste og rette AI-koden sammen med andre elever før udgivelse."};
+for(let l=0;l<EXAMS.length;l++)for(let q=0;q<8;q++){const v=EXAM_FINAL_BALANCE[l+'-'+q];if(v)EXAMS[l].questions[q][1]=v}
 function examShuffle(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 renderExam=function(){
 const t=examSession,l=t.level,questions=EXAMS[l].questions;
