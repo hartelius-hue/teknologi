@@ -66,6 +66,25 @@ const REFINED_CORRECT={
 '3-6':'At knapper har forståelige navne og kan betjenes med tastatur, også uden mus.'
 };
 for(let level=0;level<EXAMS.length;level++)for(let q=0;q<EXAMS[level].questions.length;q++){const replacement=REFINED_CORRECT[level+'-'+q];if(replacement)EXAMS[level].questions[q][1]=replacement}
+const EXAM_BALANCED_CORRECT={
+  "0-0": "Danner tekst ud fra mønstre i data og kontrollerer ikke selv alle fakta.",
+  "0-2": "Tjekke tallet i en troværdig kilde og se, hvad det bygger på.",
+  "1-1": "Stille spørgsmål og hints, før eleven får facit og forklaring.",
+  "1-2": "Beskrive rolle, mål, fremgangsmåde, grænser og løbende feedback.",
+  "1-4": "Kontrollere fakta og dokumentation samt faglig usikkerhed i svaret.",
+  "2-1": "Indsamle færrest mulige persondata og beskytte elevers privatliv.",
+  "2-3": "Flot, sikkert sprog er ikke dokumentation; påstande må efterprøves.",
+  "3-2": "Styrer klik, point og logik i et interaktivt JavaScript-spil.",
+  "0-1": "Forklar drivhuseffekten med tre eksempler for en elev i 8. klasse.",
+  "0-3": "Et fejlagtigt svar, der lyder overbevisende, men mangler faktuelt belæg.",
+  "1-0": "Teste samme opgave med begge prompts og vurdere forskellene.",
+  "1-3": "Undlade kilden og undersøge den oprindelige dokumentation selv.",
+  "2-0": "Skæve eller diskriminerende mønstre i nogle AI-besvarelser.",
+  "2-2": "Bruge AI efter skolens regler, med egen vurdering og åbenhed.",
+  "2-6": "Undersøge AI-systemets energi- og ressourceforbrug samt nytte.",
+  "3-1": "CSS bruges til at definere sidens layout, farver og visuelle udtryk."
+};
+for(let level=0;level<EXAMS.length;level++)for(let q=0;q<EXAMS[level].questions.length;q++){const fix=EXAM_BALANCED_CORRECT[level+'-'+q];if(fix)EXAMS[level].questions[q][1]=fix}
 function examShuffle(items){const a=items.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 renderExam=function(){
 const t=examSession,l=t.level,questions=EXAMS[l].questions;
