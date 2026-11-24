@@ -139,3 +139,20 @@ main{max-width:1470px;padding:20px 3.5% 110px}
 .task-header .art{background-size:cover!important;background-position:center!important}
 .hero{background-position:center center!important}
 @media(max-width:700px){.hero{background-position:62% center!important}}
+
+/* Per-mission character scenes: different pupils and distinct subject holograms */
+.scene-banner{position:relative;isolation:isolate;overflow:hidden;background:#091936!important}
+.scene-students{position:absolute;inset:0;background-size:cover;background-position:28% 48%;transform:scale(1.08);transition:transform .35s ease;filter:saturate(1.16) contrast(1.05)}
+.scene-banner:hover .scene-students{transform:scale(1.18)}
+.scene-shade{position:absolute;inset:0;background:linear-gradient(100deg,transparent 8%,#07143a44 42%,#081139d8 90%),linear-gradient(0deg,#05132ab0,transparent 35%);pointer-events:none}
+.scene-hologram{position:absolute;right:5%;top:12%;width:38%;height:68%;border:2px solid #85edff;box-shadow:0 0 19px #50e7ff90,0 15px 24px #02092399;transform:perspective(450px) rotateY(-9deg) rotateZ(3deg);border-radius:16px;overflow:hidden;animation:sceneHover 5s ease-in-out infinite}
+.scene-hologram img{width:100%;height:100%;display:block;object-fit:cover}
+.scene-banner .tiny{position:absolute;left:10px;bottom:10px;z-index:3}
+.scene-1 .scene-students,.scene-6 .scene-students,.scene-12 .scene-students,.scene-17 .scene-students{background-position:70% 55%}
+.scene-3 .scene-students,.scene-8 .scene-students,.scene-14 .scene-students{background-position:18% 35%}
+.scene-2 .scene-hologram,.scene-8 .scene-hologram,.scene-15 .scene-hologram{right:7%;top:6%;transform:perspective(450px) rotateY(10deg) rotateZ(-6deg)}
+.scene-5 .scene-hologram,.scene-10 .scene-hologram,.scene-18 .scene-hologram{right:3%;top:21%;height:60%;border-color:#ffd47b;box-shadow:0 0 22px #ffbb6088}
+.scene-11 .scene-hologram,.scene-16 .scene-hologram{top:15%;border-color:#b994ff;box-shadow:0 0 22px #b994ffbb}
+.task-header .scene-banner .scene-hologram{width:37%}
+@keyframes sceneHover{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@media(prefers-reduced-motion:reduce){.scene-students,.scene-hologram{transition:none!important;animation:none!important}}
