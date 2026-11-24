@@ -29,3 +29,9 @@
 .exam-finish button{margin:8px}
 @media(max-width:950px){#exam-panel{grid-template-columns:1fr}}
 @media(max-width:540px){.exam-tile{flex-wrap:wrap}.exam-tile>button{flex-basis:100%;max-width:none!important}.exam-question{padding:18px}.exam-hero{padding:22px}}
+
+/* Thoughtful multiple choice and reasoning inputs */
+.thinking-choice.selected{border-color:#6df6ff!important;box-shadow:0 0 0 2px #44dffa66;background:#284e76}
+#think-why,#prompt-reason,#code-reflection,#exam-why{width:100%;background:#102345;color:#f3fbff;border:1px solid #638fb1;border-radius:12px;padding:13px;font:inherit;min-height:112px;margin:9px 0 15px;resize:vertical}
+.work label,.exam-question label{display:block;margin-top:16px;font-weight:760;color:#d3f4ff}
+#exam-why:focus-visible,#think-why:focus-visible,#prompt-reason:focus-visible,#code-reflection:focus-visible{outline:2px solid #4cefff;outline-offset:2px}
