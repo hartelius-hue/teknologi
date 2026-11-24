@@ -34,9 +34,9 @@ body{background:radial-gradient(ellipse at 45% 4%,#28665c 0,transparent 38%),rad
 @media(max-width:900px){.doors{grid-template-columns:repeat(4,minmax(0,1fr))}.christmas-scene{padding:60px 18px 32px}}
 @media(max-width:600px){.doors{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.door{min-height:136px;border-width:2px}.door .toy{font-size:36px}.door .number{font-size:35px}.christmas-scene{padding:58px 12px 30px;border-width:3px}.hero-art{opacity:.24}.hero{min-height:300px}}
 @media(prefers-reduced-motion:reduce){.hero-art{animation:none}}
-</style></head><body>
+.nav a.brand-link{background:transparent;border-color:transparent;font-weight:800;padding:9px 0}.nav a.brand-link:hover{color:#ffedbd;text-decoration:underline}.nav a.brand-link:focus-visible{outline:3px solid #ffe39e;outline-offset:3px}</style></head><body>
 <div class="snow" aria-hidden="true" id="snow"></div>
-<nav class="nav"><strong>🎄 SkoleGPT Lab · Julekodelab</strong><div class="row"><a href="index.html">← Teknologiforståelse</a><button id="musicButton" aria-pressed="false">♫ Start julemusik</button><button id="readButton">🔊 Læs op</button></div></nav>
+<nav class="nav"><a class="brand-link" href="./" aria-label="SkoleGPT Lab – gå til hovedsidens start">🎄 SkoleGPT Lab · Julekodelab</a><div class="row"><a href="index.html">← Teknologiforståelse</a><button id="musicButton" aria-pressed="false">♫ Start julemusik</button><button id="readButton">🔊 Læs op</button></div></nav>
 <main class="wrap"><section class="hero"><div class="hero-text"><span class="pill">DECEMBER 2026 · 8. ÅRGANG</span><h1>JULEKODE<br>KALENDEREN <span aria-hidden="true">✨</span></h1><p>24 låger, 24 interaktive kodeudfordringer og 24 hemmelige bogstaver. Lær HTML, CSS, JavaScript, SkoleGPT og kritisk vibe coding – og find den skjulte julehilsen.</p><span class="pill">🔒 En ny låge åbner hver dag kl. 07.00</span></div><div class="hero-art" aria-hidden="true">🎄🎁🤖</div></section>
 <div class="intro" id="dateStatus" role="status"></div>
 <div id="calendar"><section class="christmas-scene" aria-label="Julekalender i juleunivers"><h2 class="calendar-title">🎁 VÆLG EN AF DE 24 JULELÅGER 🎁</h2><div class="doors" id="doors" aria-label="Julekalenderens 24 låger"></div><p class="christmas-footer">❄️ 24 dage · 24 koder · 1 hemmelig julehilsen ❄️</p></section>
