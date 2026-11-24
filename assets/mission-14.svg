@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 490" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="Samfund – holografisk teknologiillustration"><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b163b"/><stop offset=".47" stop-color="#e07628"/><stop offset="1" stop-color="#131d4b"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#ffcd75" stop-opacity=".78"/><stop offset="1" stop-color="#ffcd75" stop-opacity="0"/></radialGradient>
+<linearGradient id="holo" x2=".85" y2=".9"><stop stop-color="#fff"/><stop offset=".35" stop-color="#ffcd75"/><stop offset="1" stop-color="#e07628"/></linearGradient>
+<linearGradient id="chassis" x2=".8" y2="1"><stop stop-color="#7ca7e0"/><stop offset=".55" stop-color="#1c396d"/><stop offset="1" stop-color="#07112d"/></linearGradient>
+<filter id="shadow"><feDropShadow dx="0" dy="13" stdDeviation="12" flood-color="#030718" flood-opacity=".8"/></filter>
+<filter id="blur"><feGaussianBlur stdDeviation="16"/></filter></defs>
+<rect width="900" height="490" fill="url(#bg)"/><circle cx="628" cy="211" r="310" fill="url(#glow)" opacity=".8"/>
+<g stroke="#ffcd75" stroke-opacity=".15" stroke-width="2"><path d="M0 0V490"/><path d="M100 0V490"/><path d="M200 0V490"/><path d="M300 0V490"/><path d="M400 0V490"/><path d="M500 0V490"/><path d="M600 0V490"/><path d="M700 0V490"/><path d="M800 0V490"/><path d="M0 0H900"/><path d="M0 95H900"/><path d="M0 190H900"/><path d="M0 285H900"/><path d="M0 380H900"/><path d="M0 475H900"/></g>
+<g filter="url(#shadow)" transform="translate(390 244) rotate(-5)">
+<rect x="-225" y="-169" width="450" height="320" rx="41" fill="url(#chassis)" stroke="#ffcd75" stroke-width="9"/>
+<rect x="-200" y="-146" width="400" height="273" rx="31" fill="#071536" stroke="#a4f7ff" stroke-opacity=".6" stroke-width="3"/>
+<circle r="155" fill="url(#glow)" opacity=".5"/>
+<circle r="126" stroke="#ffcd75" stroke-opacity=".5" stroke-width="3" stroke-dasharray="14 17" fill="none"/>
+<g fill="none" stroke="url(#holo)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" transform="scale(.85)"><circle r="104"/><ellipse rx="48" ry="104"/><path d="M-104 0H104M-95-42H95M-95 42H95"/></g>
+</g>
+<ellipse cx="394" cy="438" rx="290" ry="31" fill="#ffcd75" opacity=".22" filter="url(#blur)"/>
+<g opacity=".8" stroke="#ffcd75" stroke-width="5" fill="none"><path d="M700 50h95v68h-95zM735 83h25M748 70v26"/><path d="M94 44h85v80H94zM116 84h45M140 63v42"/></g>
+<g stroke="#ffcd75" stroke-width="4" opacity=".5" fill="none"><path d="M700 370l44-30 50 25 32-24"/><circle cx="700" cy="370" r="9"/><circle cx="826" cy="341" r="9"/></g>
+</svg>
